@@ -8,56 +8,9 @@ include("../../settings/db.php");
 ?>
 
 
- <form action="" method="post">
-      
-        <label>Username</label>
-        
-          
-            <input type="text" placeholder="Username" name="username"/>
-          
-        <label>Password</label>
-        
-            <input type="password" placeholder="Password" name="password"/>
-         
-        <input type="submit" name="submit" value="Login">
-        
-    </form>
 
-<?php
- //error_reporting (E_ALL ^ E_NOTICE); 
- if(isset($_POST['submit'])){
-     
- 
 
-      $username=strtolower(mysql_real_escape_string(trim($_POST['username'])));
-      $password=mysql_real_escape_string(trim($_POST['password']));
-    
-      
-      if(!empty($username) && !empty($password)){
-        $query="SELECT * FROM admin where adm_username='$username' AND adm_pass='$password'";
-        $result=mysql_query($query);
-        
-        if(mysql_num_rows($result)==1){
-  session_start();
-  $_SESSION['last_login']=$last_login;
-  $_SESSION['login_user']=$username;
-  $sql=mysql_query("UPDATE admin SET adm_last_log=NOW() where adm_username='$username'");
-  header("location:../dashboard");
-                echo '<div id="notify">
-	    <p>Authentication Successful! :)</p>
-	   </div>';
-     }
-     else echo '<div id="notify">
-	    <p>You made a boo boo! Wrong Username or Password!</p>
-	   </div>';
 
-} 
-else {echo  '<div id="notify">
-	    <p>We mean to get all the fields to be filled.</p>
-	   </div>';}   
-}	   
-ob_end_flush();
-?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 fluid top-full"> <![endif]-->
 <!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 fluid top-full sticky-top"> <![endif]-->
@@ -65,7 +18,7 @@ ob_end_flush();
 <!--[if gt IE 8]> <html class="ie gt-ie8 fluid top-full sticky-top"> <![endif]-->
 <!--[if !IE]><!--><html class="fluid top-full sticky-top"><!-- <![endif]-->
 <head>
-  <title>Vendor Management System</title>
+  <title>moBill: Bills in your mobile.</title>
   
   <!-- Meta -->
   <meta charset="UTF-8" />
@@ -106,7 +59,7 @@ ob_end_flush();
   
     <div class="wrapper">
     
-      <h1 class="glyphicons lock">VMS <i></i></h1>
+      <h1 class="glyphicons lock">moBill <i></i></h1>
     
       <!-- Box -->
       <div class="widget widget-heading-simple widget-body-gray">
@@ -115,7 +68,7 @@ ob_end_flush();
         
           <!-- Form -->
           <form method="post" action="">
-            <label>Username or Email</label>
+            <label>Username</label>
             <input type="text" name="username" class="input-block-level" placeholder="Your Username"/> 
             <label>Password <a class="password" href="#">forgot it?</a></label>
             <input type="password" class="input-block-level margin-none" name="password" placeholder="Your Password" />
@@ -225,3 +178,38 @@ ob_end_flush();
 </body>
 </html>
 
+<?php
+ //error_reporting (E_ALL ^ E_NOTICE); 
+ if(isset($_POST['submit'])){
+     
+ 
+
+      $username=strtolower(mysql_real_escape_string(trim($_POST['username'])));
+      $password=mysql_real_escape_string(trim($_POST['password']));
+    
+      
+      if(!empty($username) && !empty($password)){
+        $query="SELECT * FROM admin where adm_username='$username' AND adm_pass='$password'";
+        $result=mysql_query($query);
+        
+        if(mysql_num_rows($result)==1){
+  session_start();
+  $_SESSION['last_login']=$last_login;
+  $_SESSION['login_user']=$username;
+  $sql=mysql_query("UPDATE admin SET adm_last_log=NOW() where adm_username='$username'");
+  header("location:../dashboard");
+                echo '<div id="notify">
+      <p>Authentication Successful! :)</p>
+     </div>';
+     }
+     else echo '<div id="notify">
+      <p>You made a boo boo! Wrong Username or Password!</p>
+     </div>';
+
+} 
+else {echo  '<div id="notify">
+      <p>We mean to get all the fields to be filled.</p>
+     </div>';}   
+}    
+ob_end_flush();
+?>

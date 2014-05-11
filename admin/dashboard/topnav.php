@@ -1,11 +1,7 @@
 <?php
 $adm_session=$_SESSION['login_user'];
 include("../../settings/db.php");
-$sql=mysql_query("SELECT * FROM `adm_details` WHERE `username`='$adm_session'");
-$row=mysql_fetch_array($sql);
-$name=$row['adm_name'];
-$email=$row['email'];
-$last_login=$row['last_login'];
+
 ?>
 <!-- Top navbar -->
 		<div class="navbar main hidden-print">

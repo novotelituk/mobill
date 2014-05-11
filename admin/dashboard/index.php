@@ -12,7 +12,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 <!--[if gt IE 8]> <html class="ie gt-ie8 fluid top-full sticky-top"> <![endif]-->
 <!--[if !IE]><!--><html class="fluid top-full sticky-top"><!-- <![endif]-->
 <head>
-	<title>Dashboard-VMS</title>
+	<title>Dashboard-moBill</title>
 
 	  <?php include("head_elements.php"); ?>
 	

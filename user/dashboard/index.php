@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 error_reporting(E_ALL ^ E_NOTICE);
@@ -14,7 +15,11 @@ if(isset($_SESSION['fbid']))
 	echo '<a href="history.php">History</a><br/>';
 	echo '<a href="expense.php">Expense Tracker</a><br/>';
 	echo '<a href="usersettings.php">Settings</a><br/>';
+	echo '<a href="logout.php">Logout</a><br/>';
 
 }
 
 ?>
+
+
+

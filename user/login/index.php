@@ -42,7 +42,7 @@ $insert_sql=mysql_query("INSERT into `user` (fb_id, user_name, user_location, us
     header("Location: ../dashboard/first_log.php");
   }
   elseif($res_check_sql[0]=='1'){
-  //$_SESSION['fbid']=$user_id;
+  $_SESSION['fbid']=$user_id;
   header("location:../dashboard");
     //echo $user_id;
                 
@@ -58,6 +58,74 @@ else
   //echo "<a href='$login_url'>Login with Facebook</a>";
 }
 ?>
-<div style="width: 120px;margin: auto;padding-top: 150px;text-align:center;">
-<a href="<? echo $login_url; ?>"><img src="connect.jpg" style="width:210px;"></a>
-</div>
+
+<!DOCTYPE html>
+
+<!-- BEGIN HTML -->
+
+<html dir="ltr" lang="en-US">
+
+<head>
+
+
+<meta charset="utf-8">
+
+<!-- PAGE TITLES -->
+
+<title>Mobill</title>
+
+<!-- META -->
+
+<meta name="description" content="your description" />
+
+<meta name="keywords" content="your keywords" />
+
+<!-- MAIN CSS -->
+
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<!-- FONTS -->
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+<!-- SHORTCUT ICONS -->
+
+<link REL="SHORTCUT ICON" HREF="images/favicon.ico">
+
+<link rel="apple-touch-icon-precomposed" href="images/iphoneicon.png">
+
+</head>
+
+<body>
+
+<div id="headerbg"></div><!-- END HEADER BACKGROUND -->
+
+<div id="container">
+
+	<header>
+
+		<img src="images/logo.png">
+
+		<a id="button" href="<? echo $login_url; ?>">FB Login</a>
+
+	</header>
+
+
+  <h1 style="font-size:30px;color:white;text-align:center;padding-top:50px;"> bills in your mobile. </h1>
+
+	<div id="content">
+
+
+		<img src="images/app.png">
+		<p>moBill is a prototype developed in AngelHack Spring 2014 in a Saturday Night!</p>
+	</div><!-- END CONTENT -->
+
+</div><!-- END CONTAINER -->
+
+	<footer>
+		<p>© 2014 Found - <a href="#">Twitter</a> - <a href="#">Facebook</a></p>
+	</footer>
+
+</body>
+
+</html>
